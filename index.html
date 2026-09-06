@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trash To Cast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <!-- LOGIN -->
+  <section id="authScreen" class="screen auth-screen">
+    <div class="auth-card">
+      <div class="brand-mark">♻</div>
+      <h1>Trash To Cast</h1>
+      <p class="subtitle">แยกขยะให้ถูกถัง สะสมแต้ม แลกรางวัล</p>
+
+      <div id="loginBox">
+        <button id="facebookBtn" class="btn facebook">เข้าสู่ระบบด้วย Facebook</button>
+        <div class="divider"><span>หรือ</span></div>
+        <input id="email" type="email" placeholder="อีเมล" autocomplete="email">
+        <input id="password" type="password" placeholder="รหัสผ่าน" autocomplete="current-password">
+        <button id="emailLoginBtn" class="btn primary">เข้าสู่ระบบ</button>
+        <button id="emailSignupBtn" class="btn outline">สมัครสมาชิกด้วยอีเมล</button>
+        <p class="hint">สำหรับ Facebook ต้องเปิดใช้งาน Facebook Provider ใน Firebase ก่อน</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFILE SETUP -->
+  <section id="profileScreen" class="screen hidden">
+    <div class="form-card">
+      <div class="brand-mark small">♻</div>
+      <h2>สร้างข้อมูลสมาชิก</h2>
+      <p>กรอกข้อมูลครั้งแรกก่อนเข้าสู่หน้าแรก</p>
+      <input id="profileName" placeholder="ชื่อ-นามสกุล">
+      <select id="profileClass">
+        <option value="">เลือกระดับชั้น</option>
+        <option>ม.1</option><option>ม.2</option><option>ม.3</option>
+        <option>ม.4</option><option>ม.5</option><option>ม.6</option>
+      </select>
+      <input id="profileRoom" placeholder="ห้อง เช่น 1, 2, 3">
+      <button id="saveProfileBtn" class="btn primary">บันทึกและเข้าสู่เว็บไซต์</button>
+    </div>
+  </section>
+
+  <!-- APP -->
+  <main id="appScreen" class="hidden">
+    <header class="topbar">
+      <div class="brand"><span>♻</span> Trash To Cast</div>
+      <button id="logoutBtn" class="logout">ออกจากระบบ</button>
+    </header>
+
+    <section id="homePage" class="page">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">ยินดีต้อนรับ</p>
+          <h2 id="welcomeName">สมาชิก</h2>
+          <p id="welcomeClass">ระดับชั้น - ห้อง -</p>
+        </div>
+        <div class="points-card">
+          <span>แต้มสะสม</span>
+          <strong id="homePoints">0</strong>
+          <small>คะแนน</small>
+        </div>
+      </div>
+
+      <div class="quick-grid">
+        <button class="quick-card" data-page="wastePage">🗑️<b>ทิ้งขยะให้ถูกถัง</b><span>ดูข้อมูล 4 ประเภท</span></button>
+        <button class="quick-card" data-page="rewardPage">🎁<b>แลกรางวัล</b><span>ใช้แต้มของคุณ</span></button>
+        <button class="quick-card" data-page="accountPage">👤<b>ข้อมูลบัญชี</b><span>แก้ไขข้อมูลสมาชิก</span></button>
+      </div>
+
+      <div class="section-title">
+        <h3>กิจกรรมสะสมแต้ม</h3>
+        <span>Demo</span>
+      </div>
+      <div class="action-list">
+        <button class="action" id="addPointBtn"><span>♻️</span><div><b>ทิ้งขยะถูกประเภท</b><small>กดเพื่อจำลองการได้รับ +10 คะแนน</small></div><strong>+10</strong></button>
+      </div>
+    </section>
+
+    <section id="wastePage" class="page hidden">
+      <div class="page-head"><p class="eyebrow">ความรู้เรื่องขยะ</p><h2>ทิ้งขยะให้ถูกถัง</h2><p>เลือกถังให้ถูกประเภท เพื่อช่วยลดขยะตกค้างและรักษาสิ่งแวดล้อม</p></div>
+      <div class="waste-grid">
+        <article class="waste-card blue"><div class="bin">🗑️</div><h3>ถังขยะทั่วไป <span>สีน้ำเงิน</span></h3><b>ควรทิ้ง:</b><p>ซองขนม ถุงพลาสติกเปื้อนอาหาร กล่องโฟม สลิปใบเสร็จ และกระดาษทิชชู</p><div class="impact">หากทิ้งไม่ถูกที่ ขยะเหล่านี้อาจตกค้างในธรรมชาติหลายร้อยปี อุดตันท่อระบายน้ำจนเกิดน้ำท่วมขัง และเพิ่มภาระการกลบฝังในบ่อขยะ</div></article>
+        <article class="waste-card green"><div class="bin">🌿</div><h3>ถังขยะเปียก / อินทรีย์ <span>สีเขียว</span></h3><b>ควรทิ้ง:</b><p>เศษอาหาร เศษผัก เปลือกผลไม้ ก้างปลา และใบไม้แห้ง</p><div class="impact">หากทิ้งรวมกับขยะอื่นจะส่งกลิ่นเหม็น เป็นแหล่งสะสมเชื้อโรคและสัตว์พาหะ เช่น หนูและแมลงวัน รวมถึงก่อให้เกิดก๊าซมีเทนที่ส่งผลต่อภาวะโลกร้อน</div></article>
+        <article class="waste-card yellow"><div class="bin">♻️</div><h3>ถังขยะรีไซเคิล <span>สีเหลือง</span></h3><b>ควรทิ้ง:</b><p>ขวดพลาสติก กระป๋องอลูมิเนียม ขวดแก้ว ลังกระดาษ และกล่องนม UHT</p><div class="impact">หากทิ้งปะปนกับขยะเปียกจะทำให้สิ่งของเลอะเทอะจนหมดคุณค่าในการรีไซเคิล สิ้นเปลืองทรัพยากร และเพิ่มขยะไร้ประโยชน์</div></article>
+        <article class="waste-card red"><div class="bin">⚠️</div><h3>ถังขยะอันตราย / พิษ <span>สีแดง</span></h3><b>ควรทิ้ง:</b><p>ถ่านไฟฉาย แบตเตอรี่ หลอดไฟ กระป๋องสเปรย์ และภาชนะบรรจุสารเคมี</p><div class="impact">หากทิ้งไม่ระวังอาจเกิดสารเคมีรั่วซึมลงดินและแหล่งน้ำ เป็นอันตรายต่อสิ่งแวดล้อม และอาจเกิดการระเบิดหรืออันตรายร้ายแรงต่อพนักงานเก็บขนขยะ</div></article>
+      </div>
+    </section>
+
+    <section id="rewardPage" class="page hidden">
+      <div class="page-head"><p class="eyebrow">Rewards</p><h2>แต้มของฉัน & รางวัล</h2><p>แต้มสะสมปัจจุบัน: <b id="rewardPoints">0</b> คะแนน</p></div>
+      <div class="reward-grid">
+        <article class="reward-card"><div class="reward-icon">✏️</div><h3>ดินสอรักษ์โลก</h3><p>ของรางวัลสำหรับสมาชิกที่สะสมแต้ม</p><strong>50 คะแนน</strong><button class="btn outline redeem" data-cost="50" data-name="ดินสอรักษ์โลก">แลกรางวัล</button></article>
+        <article class="reward-card"><div class="reward-icon">🥤</div><h3>แก้วน้ำรักษ์โลก</h3><p>ลดการใช้แก้วพลาสติกแบบใช้ครั้งเดียว</p><strong>100 คะแนน</strong><button class="btn outline redeem" data-cost="100" data-name="แก้วน้ำรักษ์โลก">แลกรางวัล</button></article>
+        <article class="reward-card"><div class="reward-icon">🌱</div><h3>ต้นไม้เล็ก</h3><p>นำไปปลูกเพิ่มพื้นที่สีเขียว</p><strong>150 คะแนน</strong><button class="btn outline redeem" data-cost="150" data-name="ต้นไม้เล็ก">แลกรางวัล</button></article>
+      </div>
+    </section>
+
+    <section id="accountPage" class="page hidden">
+      <div class="page-head"><p class="eyebrow">Account</p><h2>ข้อมูลบัญชี</h2></div>
+      <div class="account-card">
+        <div class="avatar">👤</div>
+        <label>ชื่อ-นามสกุล</label><input id="accountName">
+        <label>ระดับชั้น</label><select id="accountClass"><option>ม.1</option><option>ม.2</option><option>ม.3</option><option>ม.4</option><option>ม.5</option><option>ม.6</option></select>
+        <label>ห้อง</label><input id="accountRoom">
+        <label>อีเมล</label><input id="accountEmail" disabled>
+        <button id="updateAccountBtn" class="btn primary">บันทึกข้อมูล</button>
+      </div>
+    </section>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-page="homePage">🏠<span>หน้าแรก</span></button>
+      <button class="nav-item" data-page="wastePage">🗑️<span>ความรู้</span></button>
+      <button class="nav-item" data-page="rewardPage">🎁<span>รางวัล</span></button>
+      <button class="nav-item" data-page="accountPage">👤<span>บัญชี</span></button>
+    </nav>
+  </main>
+
+  <!-- Firebase compat SDK: replace config in app.js -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
